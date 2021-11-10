@@ -8,24 +8,35 @@ struct OBIECTE
     int val,greutate;
     double med;
 }v[1000];
-
+// Comparam eficient
 bool cmp(OBIECTE a,OBIECTE b)
 {
-    return a.med >= b.med;
+    return a.med < b.med;
 }
 
+// Sortam in functie de eficienta
+void bubble_sort(int n) {
+    OBIECTE aux;
+    for (int i = 0; i < n-1; i++)    
+    for (int j = 0; j < n-i-1; j++)
+           if(cmp(v[j],v[j+1])) {
+                aux = v[j];
+                v[j] = v[j+1];
+                v[j+1] = aux;
+            }
+}
 int main()
 {
     int i,n,gmax,greu = 0,conto;
     double val = 0;
     cin >> n >> gmax;
-    for (i = 1;i <= n;i++)
+    for (i = 0;i < n;i++)
     {
         cin >> v[i].greutate >> v[i].val;
         v[i].med = (double) v[i].val / (double) v[i].greutate;
     }
-    sort(v + 1,v + n + 1,cmp);
-    for (i = 1;i <= n;i++)
+    bubble_sort(n);
+    for (i = 0;i < n;i++)
     {
             conto = gmax - greu;
             if (conto >= v[i].greutate)
@@ -37,7 +48,6 @@ int main()
             {
                 val = val + (double) conto * v[i].med;
                 greu = greu + conto;
-                break;
             }
     }
     cout << val;
