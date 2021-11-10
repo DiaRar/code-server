@@ -11,21 +11,13 @@ struct OBIECTE
 
 bool cmp(OBIECTE a,OBIECTE b)
 {
-    if (a.med < b.med)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
+    return a.med < b.med;
 }
 
 int main()
 {
     int i,n,gmax,greu = 0,conto;
-    double valo = 0;
-    
+    double val = 0;
     cin >> n >> gmax;
     for (i = 1;i <= n;i++)
     {
@@ -35,20 +27,20 @@ int main()
     sort(v + 1,v + n + 1,cmp);
     for (i = 1;i <= n;i++)
     {
-        {
             conto = gmax - greu;
             if (conto >= v[i].greutate)
             {
-                valo = valo + (double) v[i].val;
+                val = val + (double) v[i].val;
                 greu = greu + v[i].greutate;
             }
             else
             {
-                valo = valo + (double) conto * v[i].med;
+                val = val + (double) conto * v[i].med;
                 greu = greu + conto;
+                break;
             }
     }
-    cout << valo;
+    cout << val;
     
     return 0;
 }
