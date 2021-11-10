@@ -16,14 +16,65 @@ bool cmp(cerc a = {0 , 0}, cerc b = {0 , 0}){
     return a.dr<b.dr;
 }
 
+// Inceputul sortarii
+
+void merge(cerc *arr, int st, int dr, int m)
+{
+    int i, j, k;
+    cerc v2[NMAX+5];
+    i = st;
+    k = st;
+    j = m + 1;
+    while(i <= m && j <= dr) {
+        // Comparam pozitiile de final ale vectorului
+        if (cmp(arr[i] , arr[j])) {
+            v2[k] = arr[i];
+            k++;
+            i++;
+        }
+        else  {
+            v2[k] = arr[j];
+            k++;
+            j++;
+        }
+    }
+    while(i <= m) {
+        v2[k] = arr[i];
+        k++;
+        i++;
+    }
+    while(j <= dr) {
+        v2[k] = arr[j];
+        k++;
+        j++;
+    }
+    for(i = st; i < k; i++)  {
+        arr[i] = v2[i];
+    }
+}
+
+// Merge sort, algoritm divide et impera cu complexitate nlog(n)
+void merge_sort(cerc *arr, int st, int dr)
+{
+    int m;
+    if(st < dr){
+        m=(st+dr)/2;
+        merge_sort(arr,st,m);
+        merge_sort(arr,m+1,dr);
+        merge(arr,st,dr,m);
+    }
+}
+
 cerc v[NMAX+5];
+
+//Sfarsitul sortarii
 
 // Citim pozitia si raza cercului si o transformam intr-un segment
 void citire(int n = 1)
 {
 
     int r, poz;
-    for (int i = 0; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
         cin >> poz >> r;
         v[i].st = poz-r;
@@ -36,9 +87,9 @@ void parc(int n = 1)
 {
     int x, nr = 1;
     x = v[0].dr;
-    for (int i=0; i<n-1; i++)
+    for(int i=0; i<n-1; i++)
     {
-        if (x < v[i+1].st)
+        if(x < v[i+1].st)
         {
             nr++;
             x = v[i+1].dr;
@@ -46,12 +97,18 @@ void parc(int n = 1)
     }
     cout<<nr;
 }
+
+// Printare a valorilor pentru a verifica algoritmul de sortare
+void print(int n = 1) {
+    for(int i=0; i<n; ++i) cout << v[i].dr << endl;
+}
 int main ()
 {
     int n;
     cin >> n;
     citire(n);
-    sort(v, v+n, cmp);
+    merge_sort(v, 0, n-1);
     parc(n);
+//  print(n);
     return 0;
 }
