@@ -35,11 +35,6 @@ int main()
     sort(v + 1,v + n + 1,cmp);
     for (i = 1;i <= n;i++)
     {
-        if (greu == gmax)
-        {
-            break;
-        }
-        else
         {
             conto = gmax - greu;
             if (conto >= v[i].greutate)
@@ -52,7 +47,6 @@ int main()
                 valo = valo + (double) conto * v[i].med;
                 greu = greu + conto;
             }
-        }
     }
     cout << valo;
     
