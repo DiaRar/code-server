@@ -11,7 +11,7 @@ struct OBIECTE
 
 bool cmp(OBIECTE a,OBIECTE b)
 {
-    return a.med > b.med;
+    return a.med >= b.med;
 }
 
 int main()
