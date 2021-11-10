@@ -5,18 +5,18 @@ ifstream cin("cerc3.in");
 ofstream cout("cerc3.out");
 const int NMAX = 3e2;
 
-// Definim structura segmentului ce reprezinta cercul pe dreapta
+// Definim structura segmentului ce reprezintă cercul pe dreaptă
 struct cerc
 {
     int st, dr;
 };
 
-// Comparam pozitia de sfarsit intre cele 2 segmente
+// Comparam poziția de sfarșit între cele 2 segmente
 bool cmp(cerc a = {0 , 0}, cerc b = {0 , 0}){
     return a.dr<b.dr;
 }
 
-// Inceputul sortarii
+// Începutul sortării
 
 void merge(cerc *arr, int st, int dr, int m)
 {
@@ -26,7 +26,7 @@ void merge(cerc *arr, int st, int dr, int m)
     k = st;
     j = m + 1;
     while(i <= m && j <= dr) {
-        // Comparam pozitiile de final ale vectorului
+        // Comparăm coordonatele marginilor drepte ale segmentelor
         if (cmp(arr[i] , arr[j])) {
             v2[k] = arr[i];
             k++;
@@ -67,9 +67,9 @@ void merge_sort(cerc *arr, int st, int dr)
 
 cerc v[NMAX+5];
 
-//Sfarsitul sortarii
+//Sfârșitul sortării
 
-// Citim pozitia si raza cercului si o transformam intr-un segment
+// Citim poziția și raza cercului și o transformăm într-un segment
 void citire(int n = 1)
 {
 
@@ -82,7 +82,7 @@ void citire(int n = 1)
     }
 }
 
-// Parcurgem segmentele cu conditia ca un segment sa aibe inceputul dupa sfarsitul segmentului anterior
+// Parcurgem segmentele cu condiția ca un segment să aibe începutul după sfârșitul segmentului anterior
 void parc(int n = 1)
 {
     int x, nr = 1;
