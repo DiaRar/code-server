@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: configure
-      run: ./configure
+      run: sudo ./configure
     - name: make
       run: make
     - name: Run Code
