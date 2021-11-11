@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: 3105
+
 jobs:
   build:
 
@@ -14,11 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: workind_dir
-      run: cd 3105
-    - name: dircheck
-      run: ls
-    - name: configure
-      run: ./configure
     - name: make
       run: make
     - name: Run Code
