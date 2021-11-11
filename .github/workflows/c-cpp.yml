@@ -17,10 +17,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: configure
-      run: sudo ./configure
     - name: checkdir
       run: ls
+    - name: configure
+      run: sudo ./configure
     - name: make
       run: make
     - name: Run Code
