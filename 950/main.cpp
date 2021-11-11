@@ -100,7 +100,7 @@ void parc(int n = 1)
 
 // Printare a valorilor pentru a verifica algoritmul de sortare
 void print(int n = 1) {
-    for(int i=0; i<n; ++i) cout << v[i].dr << endl;
+    for(int i=0; i<n; ++i) cout << v[i].st << " " << v[i].dr << endl;
 }
 int main ()
 {
@@ -109,6 +109,6 @@ int main ()
     citire(n);
     merge_sort(v, 0, n-1);
     parc(n);
-//  print(n);
+//    print(n);
     return 0;
 }
