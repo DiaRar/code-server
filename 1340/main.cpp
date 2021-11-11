@@ -38,6 +38,7 @@ int main()
     bubble_sort(n);
     for (i = 0;i < n;i++)
     {
+        if(gmax == greu) break;
             conto = gmax - greu;
             if (conto >= v[i].greutate)
             {

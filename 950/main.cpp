@@ -1,5 +1,4 @@
 #include <fstream>
-#include <algorithm>
 using namespace std;
 ifstream cin("cerc3.in");
 ofstream cout("cerc3.out");
@@ -18,6 +17,7 @@ bool cmp(cerc a = {0 , 0}, cerc b = {0 , 0}){
 
 // Începutul sortării
 
+// Functie apelata pe partitiile de vector pentru sortare
 void merge(cerc *arr, int st, int dr, int m)
 {
     int i, j, k;
