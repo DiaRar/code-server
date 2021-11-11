@@ -20,7 +20,7 @@ jobs:
     - name: checkdir
       run: sudo ls
     - name: configure
-      run: sudo ./configure
+      run: sudo configure
     - name: make
       run: make
     - name: Run Code
