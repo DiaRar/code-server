@@ -18,6 +18,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: configure
+    - name: checkdir
+      run: ls
       run: sudo ./configure
     - name: make
       run: make
