@@ -118,7 +118,10 @@
 			"optional": "cpp",
 			"random": "cpp",
 			"string_view": "cpp",
-			"sstream": "cpp"
+			"sstream": "cpp",
+			"queue": "cpp",
+			"stack": "cpp",
+			"xmemory0": "cpp"
 		}
 	}
 }
